@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Exercício 01</title>
+</head>
+
+<body>
+    <ul></ul>
+
+    <input type="text" name="nome">
+    <button onClick="adicionar()">Adicionar</button>
+    
+    <script>
+        // Variável com as informações
+        var nomes = ["Diego", "Gabriel", "Lucas", "Tiago"];
+        // Seleciona a tag <ul>
+        var listElement = document.querySelector('ul');
+        // Seleciona a tag <input>
+        var inputElement = document.querySelector('input');
+
+        function addItem(text) {
+            var liElement = document.createElement('li');
+            var textElement = document.createTextNode(text);
+
+            /* appendChild
+             * Adiciona um nó ao final da lista de filhos de um nó pai especificado.
+             * Se o nó já existir no documento, ele é removido de seu nó pai atual antes
+             * de ser adicionado ao novo pai. 
+             */
+
+            // liElement é o elemento pai, textElement é o elemento filho adicionado ao pai
+            liElement.appendChild(textElement);
+            listElement.appendChild(liElement);   
+        }
+
+        function adicionar() {
+            addItem(inputElement.value);
+            inputElement.value = "";
+        }
+
+        // Um for para percorrer a variável nome
+        for (nome of nomes) {
+            addItem(nome);
+        }
+
+    </script>
+</body>
+
+</html>
